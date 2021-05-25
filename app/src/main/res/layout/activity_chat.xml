@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E9E4"
+    android:id="@+id/root_view"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/lyt_back"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingRight="@dimen/spacing_medium"
+            android:focusable="true">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_arrow_back" />
+
+            <View
+                android:layout_width="@dimen/spacing_medium"
+                android:layout_height="0dp" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_person"
+                app:civ_border_color="#FF000000"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/spacing_small"
+            android:paddingRight="@dimen/spacing_small">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roberts"
+                android:id="@+id/user_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/white"
+                app:fontFamily="sans-serif-medium" />
+
+            <com.github.curioustechizen.ago.RelativeTimeTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Online"
+                android:id="@+id/date"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_10" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.Toolbar
+            app:title="s"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:contentInsetStartWithNavigation="0dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/spacing_medium"
+            android:paddingTop="@dimen/spacing_medium"
+            android:scrollbars="vertical"
+            android:scrollingCache="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bg_gradient_soft"
+            android:rotation="180" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/containeer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_medium">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:id="@+id/edit_and_emo_container"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="1dp">
+
+<!--            android:layout_height="@dimen/spacing_xmlarge"-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/spacing_small"
+                android:paddingRight="@dimen/spacing_small"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/emoji"
+                    android:layout_width="@dimen/spacing_xmlarge"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:padding="@dimen/spacing_middle"
+                    app:srcCompat="@drawable/ic_sentiment_satisfied"
+                    app:tint="@color/purple_500"
+                    android:focusable="true" />
+
+                <com.inihood.android.whatsappclone.emojicon.EmojiconEditText
+                    android:id="@+id/text_message"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    emojicon:emojiconSize="28sp"
+                    android:inputType="textCapSentences|textImeMultiLine"
+                    android:background="@android:color/transparent"
+                    android:hint="Write a message..."
+                    android:imeOptions="actionSend"
+                     />
+
+                <ImageView
+                    android:id="@+id/attach"
+                    android:layout_width="@dimen/spacing_xmlarge"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:padding="@dimen/spacing_middle"
+                    app:tint="@color/purple_500"
+                    app:srcCompat="@drawable/ic_attach_file"
+                    android:focusable="true" />
+
+
+                <ImageView
+                    android:id="@+id/cam"
+                    android:layout_width="@dimen/spacing_xmlarge"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:padding="@dimen/spacing_middle"
+                    app:tint="@color/purple_500"
+                    app:srcCompat="@drawable/ic_photo_camera"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_small"
+            android:clickable="true"
+            android:gravity="center"
+            app:tint="@color/white"
+            app:backgroundTint="@color/purple_500"
+            app:elevation="3dp"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_mic"
+            app:useCompatPadding="false"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</LinearLayout>

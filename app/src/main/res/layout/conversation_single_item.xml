@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="5dp"
+    android:layout_marginTop="10dp"
+    android:id="@+id/user_card"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_person"
+            app:civ_border_color="@color/design_default_color_primary"
+            app:civ_border_width="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Ini Hood"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            app:layout_constraintBottom_toBottomOf="@+id/user_image"
+            app:layout_constraintStart_toEndOf="@+id/user_image"
+            app:layout_constraintTop_toTopOf="@+id/user_image"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.github.curioustechizen.ago.RelativeTimeTextView
+            android:id="@+id/user_last_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:15"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.846"
+            app:layout_constraintStart_toEndOf="@+id/user_last_sms"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.inihood.android.whatsappclone.emojicon.EmojiconTextView
+            android:id="@+id/user_last_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="how are you"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/user_image"
+            app:layout_constraintStart_toEndOf="@+id/user_image"
+            app:layout_constraintTop_toBottomOf="@+id/user_name"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

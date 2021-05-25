@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginEnd="9dp"
+        android:background="@drawable/chat_sent_rounded_background"        android:orientation="vertical"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.inihood.android.whatsappclone.emojicon.EmojiconTextView
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="12dp"
+            android:text="text message"
+            android:id="@+id/chat_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            emojicon:emojiconSize="28sp"
+            android:textSize="18sp"
+            android:visibility="gone"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="12dp"
+            android:text="text message"
+            android:id="@+id/chat_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="200dp"
+            android:maxWidth="250dp"
+            android:textSize="18sp"
+            android:src="@drawable/ic_person"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:paddingRight="12dp"
+            android:paddingLeft="12dp"
+            android:paddingBottom="9dp"
+            android:layout_gravity="end"
+            android:text="07:11"
+            android:id="@+id/chat_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
