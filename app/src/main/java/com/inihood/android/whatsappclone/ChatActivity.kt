@@ -106,7 +106,7 @@ class ChatActivity : App(), GridMenuAdapter.MediaListener, MediaPreview.compress
             if (recording){
                 checkAudioPermission()
             }else{
-                sendChat(MessageType.TEXT, "image")
+                sendText(MessageType.TEXT)
             }
         }
 
@@ -290,10 +290,24 @@ class ChatActivity : App(), GridMenuAdapter.MediaListener, MediaPreview.compress
         iconToBeChanged.setImageResource(drawableResourceId)
     }
 
-    fun sendChat(smsType: String, imagePath: String) {
+    fun sendText(smsType: String) {
+       // Toast.makeText(applicationContext, imagePath, Toast.LENGTH_LONG).show()
         val msg: String = text_message.getText().toString()
         text_message.setText("")
         if (msg.isEmpty()) return
+       // Toast.makeText(applicationContext, "imagePath", Toast.LENGTH_LONG).show()
+        ChatUtils.processMessage(mAuth!!.currentUser!!.uid, other_user_id!!,
+                msg, other_user_image, other_user_name, smsType, "imagePath")
+    }
+
+
+    fun sendImage(smsType: String, imagePath: String) {
+        // Toast.makeText(applicationContext, imagePath, Toast.LENGTH_LONG).show()
+        val msg =  "sms"
+//        text_message.setText("")
+//        if (msg.isEmpty()) return
+        Log.d("MEDIATAG", "ImageUri: $imagePath")
+       // Toast.makeText(applicationContext, imagePath, Toast.LENGTH_LONG).show()
         ChatUtils.processMessage(mAuth!!.currentUser!!.uid, other_user_id!!,
                 msg, other_user_image, other_user_name, smsType, imagePath)
     }
@@ -346,8 +360,9 @@ class ChatActivity : App(), GridMenuAdapter.MediaListener, MediaPreview.compress
         }?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val downloadUri = task.result
+
                 // add to chat
-                sendChat(MessageType.IMAGE, downloadUri.toString())
+                sendImage(MessageType.IMAGE, downloadUri.toString())
             }
         }
         uploadTask?.addOnProgressListener {
